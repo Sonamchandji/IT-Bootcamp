@@ -13,8 +13,8 @@ logging.getLogger().setLevel(logging.INFO)
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/itproject2022bootcamp/gcp-project-346311-bf82119ae708.json"
 INPUT_SUBSCRIPTION = "projects/gcp-project-346311/subscriptions/my-pub-topic-sub"
 BIGQUERY_TABLE = "gcp-project-346311:public_trading.stg_pub_trad"
-#BIGQUERY_SCHEMA = "timestamp:TIMESTAMP,id:NUMERIC,ticker:STRING,title:STRING,category:STRING,content:STRING,release_date:DATE,provider:STRING,url:STRING,article_id:NUMERIC"
-BIGQUERY_SCHEMA = "id:NUMERIC,ticker:STRING,title:STRING,category:STRING,content:STRING,release_date:DATE,provider:STRING,url:STRING,article_id:NUMERIC"
+BIGQUERY_SCHEMA = "timestamp:TIMESTAMP,id:NUMERIC,ticker:STRING,title:STRING,category:STRING,content:STRING,release_date:DATE,provider:STRING,url:STRING,article_id:NUMERIC"
+#BIGQUERY_SCHEMA = "id:NUMERIC,ticker:STRING,title:STRING,category:STRING,content:STRING,release_date:DATE,provider:STRING,url:STRING,article_id:NUMERIC"
 
 
 class CustomParsing(beam.DoFn):
@@ -74,8 +74,8 @@ def run():
             )
             #.with_output_types(bytes)
            # | "UTF-8 bytes to string" >> beam.Map(lambda msg: msg.decode("utf-8"))
-            #| "CustomParse" >> beam.ParDo(CustomParsing())
-            | "print" >> beam.Map(collect)
+            | "CustomParse" >> beam.ParDo(CustomParsing())
+           # | "print" >> beam.Map(collect)
             | "WriteToBigQuery" >> beam.io.WriteToBigQuery(
                 known_args.output_table,
                 schema=known_args.output_schema,
