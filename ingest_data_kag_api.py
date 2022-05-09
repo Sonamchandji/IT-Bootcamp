@@ -26,8 +26,7 @@ fieldnames=("id","ticker","title","category","content","release_date","provider"
 reader = csv.DictReader( f_data, fieldnames)
 
 for row in reader:
-    time.sleep(3)
-#for line in f_data:
+   #for line in f_data:
     if(n==10):
            break
     else:
