@@ -11,8 +11,8 @@ logging.getLogger().setLevel(logging.INFO)
 
 # Service account key path
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/itproject2022bootcamp/gcp-project-346311-bf82119ae708.json"
-INPUT_SUBSCRIPTION = "projects/gcp-project-346311/subscriptions/my-pub-topic-sub"
-BIGQUERY_TABLE = "gcp-project-346311:public_trading.stg_pub_trad"
+INPUT_SUBSCRIPTION = "projects/gcp-project-346311/subscriptions/my_pub_topic1-sub"
+BIGQUERY_TABLE = "gcp-project-346311:public_trading.stg_pub_trad_test1"
 BIGQUERY_SCHEMA = "timestamp:TIMESTAMP,id:NUMERIC,ticker:STRING,title:STRING,category:STRING,content:STRING,release_date:DATE,provider:STRING,url:STRING,article_id:NUMERIC"
 #BIGQUERY_SCHEMA = "id:NUMERIC,ticker:STRING,title:STRING,category:STRING,content:STRING,release_date:DATE,provider:STRING,url:STRING,article_id:NUMERIC"
 
