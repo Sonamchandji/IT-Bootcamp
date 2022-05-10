@@ -12,7 +12,7 @@ from google.cloud import pubsub_v1
 from csv import reader
 
 project_id = "gcp-project-346311"
-topic_name = "my-pub-topic"
+topic_name = "my-pub-topic1"
 api_key = "d3a9b381b061bb64b93dc2228528df1c"
 publisher = pubsub_v1.PublisherClient(batch_settings=pubsub_v1.types.BatchSettings(max_latency=5))
 topic_path = publisher.topic_path(project_id, topic_name)
@@ -27,7 +27,7 @@ reader = csv.DictReader( f_data, fieldnames)
 
 for row in reader:
    #for line in f_data:
-    if(n==10):
+    if(n==10000):
            break
     else:
            if flag==0:
@@ -37,7 +37,7 @@ for row in reader:
             #  data=json.dumps(row.encode(utf-8))
               data = json.dumps(row).encode('utf-8')
               publisher.publish(topic_path, data=data)
-          #    n=n+1
+              n=n+1
 #            print("Pushed message to topic.")
               #data=line.encode('utf-8')
            #   print(data)
