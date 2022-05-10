@@ -12,7 +12,7 @@ from google.cloud import pubsub_v1
 from csv import reader
 
 project_id = "gcp-project-346311"
-topic_name = "my-pub-topic1"
+topic_name = "my_pub_topic1"
 api_key = "d3a9b381b061bb64b93dc2228528df1c"
 publisher = pubsub_v1.PublisherClient(batch_settings=pubsub_v1.types.BatchSettings(max_latency=5))
 topic_path = publisher.topic_path(project_id, topic_name)
