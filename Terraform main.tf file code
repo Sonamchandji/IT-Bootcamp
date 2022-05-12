@@ -1,0 +1,58 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~>3.0"
+    }
+  }
+}
+
+variable "gcp_region" {
+  type        = string
+  description = "Region of FINFO project execution"
+  default     = "Melbourne"
+}
+
+variable "gcp_zone" {
+  type        = string
+  description = "Project zone"
+  default     = "australia-southeast2-a"
+}
+
+variable "gcp_project" {
+  type        = string
+  description = "Project to use for this config"
+}
+
+provider "google" {
+  region  = var.gcp_region
+  project = var.gcp_project
+}
+
+# Create a single Compute Engine instance
+resource "google_compute_instance" "default" {
+  name         = "finfo-vm"
+  machine_type = "f1-micro"
+  zone         = var.gcp_zone
+  tags         = ["ssh"]
+
+  metadata = {
+    enable-oslogin = "TRUE"
+  }
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
+  }
+
+  # Install Flask
+  metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential python-pip rsync; pip install flask"
+
+  network_interface {
+    network = "default"
+
+    access_config {
+      # Include this section to give the VM an external IP address
+    }
+  }
+}
