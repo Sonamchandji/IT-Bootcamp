@@ -1,0 +1,58 @@
+version :2
+
+sources:
+  - name: pe_dataset
+    description: Private Equity dataset for FINFO project
+    database: gcp-project-346311.private_equity
+    schema: pe_dataset
+    tables:
+      - name: raw_priv_equi
+        decription: A clone of Private Equity data from GCS
+        columns:
+          - name: company_name
+            description: Name of the private equity company
+          - name: growth_stage
+            description: Stage of growth the company is currently at
+          - name: country
+            description: Country where the company is based
+          - name: state
+            description: State where the company is based
+          - name: city
+            description: City where the company is based
+          - name: continent
+            description: Continent where the company is based
+          - name: industry
+            description: Industry/ies the company belongs to
+          - name: sub_industry
+            description: Sub Industry/ies the company belongs to
+          - name: client__focus
+            description: Business to business (B2B) or business to consumer (B2C)
+          - name: business_model
+            description: Describes the business model
+          - name: company status
+            description: Indicator whether the company is still functional or not
+          - name: round 
+            description: Describes the stage of financing the company
+          - name: amount_raised
+            description: Dollar value raised in this round
+          - name: currency
+            description: Currency of the round
+          - name: date
+            description: Date of the record
+          - name: quarter 
+            description: Quarter of the record
+          - name: month
+            description: Month of the record
+          - name: year
+            description: Year of the record
+          - name: investors
+            description: entity/ies which commits capital with the expectation of receiving financial returns
+          - name: investor_types
+            description: type of investor
+          - name: company_valuation
+            description: valuation of the company
+          - name: valuation_date
+            description: date of company valuation
+
+
+     
