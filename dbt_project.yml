@@ -35,3 +35,7 @@ models:
   FINFO_dbt:
     # Applies to all files under models/example/
     +materialized: table
+
+# Installing packages
+repositories:
+    - https://github.com/fishtown-analytics/dbt-utils.git@0.8.4
