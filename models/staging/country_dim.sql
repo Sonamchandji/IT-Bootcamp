@@ -1,7 +1,9 @@
-select 
-    country_id integer not null
-    country,
-    state,
-    city,
-    continent
-from {{ source('pe_dataset') }}
+with country as (
+    select
+        country,
+        state,
+        city,
+        continent
+    from {{ref('pe_dataset')}})
+
+select * from country
