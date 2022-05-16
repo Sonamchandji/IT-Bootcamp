@@ -47,7 +47,7 @@ final as (
 
     select
         country_col.country_id,
-        date_col.date_id
+        date_col.date_id,
         company_col.company_id,
         investor_col.investor_id,
         pe_rest.round,
