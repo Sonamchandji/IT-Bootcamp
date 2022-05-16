@@ -1,8 +1,8 @@
 with investor as (
     select
-        {{ dbt_utils.surrogate_key(['investor_name', 'investor_types', 'date']) }} as investor_id,
-        investor_name,
-        investor_types
+        investor_name
+        ,investor_types
+        ,SHA1(investor_name||'|'||investor_types) AS investor_id
     from {{ref('pe_dataset')}})
 
 select * from investor
