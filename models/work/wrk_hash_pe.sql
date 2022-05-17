@@ -1,4 +1,4 @@
-{{config (materialized = "view")}}
+{{config (materialized = "table")}}
 with pe_hash_dataset as (
    select
     company_name
