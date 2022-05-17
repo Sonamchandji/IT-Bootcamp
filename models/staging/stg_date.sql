@@ -1,1 +1,1 @@
-select * from `gcp-project-346311.private_equity.date_dim` as stg_date
+select * from `gcp-project-346311.private_equity.date_dim`
