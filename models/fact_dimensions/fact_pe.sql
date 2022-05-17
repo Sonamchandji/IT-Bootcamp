@@ -1,9 +1,9 @@
 with fact as (
     select
         country_id
-        ,date_id
         ,company_id
         ,investor_id
+        ,date_id
         ,round
         ,amount_raised
         ,currency
