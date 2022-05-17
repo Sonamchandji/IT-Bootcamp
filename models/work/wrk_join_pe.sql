@@ -1,3 +1,4 @@
+{{config (materialized = "view")}}
 with dt_temp as ( 
   select
      date
