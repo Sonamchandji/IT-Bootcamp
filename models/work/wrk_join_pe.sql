@@ -1,10 +1,10 @@
 {{config (materialized = "view")}}
-with dt_temp as ( 
-  select
-     date
-    ,date_id
-  from {{ref('stg_date')}}
-)
+-- with dt_temp as ( 
+  --select
+     --date
+    --,date_id
+  --from {{ref('stg_date')}}
+--)
 
 select 
 company_name
@@ -30,6 +30,6 @@ company_name
     ,company_id
     ,country_id
 from {{ref('wrk_hash_pe')}} as pe
-inner join dt_temp
-on pe.date = dt_temp.date
+join {{ref('stg_date')}} as dt
+on pe.date = dt.date
 
