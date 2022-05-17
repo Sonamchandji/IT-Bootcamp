@@ -1,5 +1,5 @@
 with pe_hash_dataset as (
-    select
+   select
     company_name
     ,growth_stage
     ,country
@@ -22,6 +22,6 @@ with pe_hash_dataset as (
     ,SHA1(investor_name||'|'||investor_types) AS investor_id
     ,SHA1(country||'|'||state) AS country_id
     ,SHA1(company_name||'|'||industry) AS company_id
-    from {{ref('pe_dataset')}})
+   from {{ref('stg_raw')}})
 
 select * from pe_hash_dataset 
