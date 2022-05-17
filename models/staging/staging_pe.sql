@@ -13,6 +13,6 @@
 --From pe_hash_dataset Inner join table_1 on pe_hash_dataset.date = table_1.date
 
 select *
-from {{ref('pe_hash_dataset')}} 
-inner join {{ref('date_dim')}} 
-on {{ref('pe_hash_dataset')}}.date = {{ref('date_dim')}}.date 
+from {{ref('pe_hash_dataset')}} as pe
+inner join {{ref('date_dim')}} as dt
+on pe.date = dt.date 
