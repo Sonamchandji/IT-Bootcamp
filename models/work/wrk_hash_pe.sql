@@ -15,7 +15,7 @@ with pe_hash_dataset as (
     ,round
     ,amount_raised
     ,currency
-    ,date
+    ,pe.date
     ,investor_types
     ,investor_name
     ,company_valuation_usd as company_valuation
@@ -23,6 +23,8 @@ with pe_hash_dataset as (
     ,SHA1(investor_name||'|'||investor_types) AS investor_id
     ,SHA1(country||'|'||state) AS country_id
     ,SHA1(company_name||'|'||industry) AS company_id
-   from {{ref('stg_raw')}})
+    ,dt.date_id
+   from {{ref('stg_raw')}} as pe, {{ref('stg_date')}} as dt
+where pe.date = dt.date)
 
 select * from pe_hash_dataset

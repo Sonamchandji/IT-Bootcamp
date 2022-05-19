@@ -1,5 +1,5 @@
 with company as (
-    select
+    select distinct
         company_name
         ,growth_stage
         ,industry
@@ -10,6 +10,6 @@ with company as (
         ,company_valuation
         ,valuation_date
         ,company_id
-    from {{ref('wrk_join_pe')}})
+    from {{ref('wrk_hash_pe')}})
 
 select * from company

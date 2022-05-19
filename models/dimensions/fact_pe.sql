@@ -7,7 +7,7 @@ with fact as (
         ,round
         ,amount_raised
         ,currency
-    from {{ref('wrk_join_pe')}}
+    from {{ref('wrk_hash_pe')}}
 )
 
 select * from fact

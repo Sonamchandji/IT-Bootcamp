@@ -1,10 +1,10 @@
 with country as (
-    select
+    select distinct
         country
         ,state
         ,city
         ,continent
         ,country_id
-    from {{ref('wrk_join_pe')}})
+    from {{ref('wrk_hash_pe')}})
 
 select * from country
