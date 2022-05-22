@@ -1,7 +1,8 @@
 {{config (materialized = "table")}}
 with pe_hash_dataset as (
    select
-    company_name
+    pe.timestamp
+    ,company_name
     ,growth_stage
     ,country
     ,state
