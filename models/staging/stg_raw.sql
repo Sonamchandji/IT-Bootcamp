@@ -1,6 +1,6 @@
 select 
 
-timestamp as table_ts
+--timestamp as table_ts
     ,company_name
     ,growth_stage
     ,country
