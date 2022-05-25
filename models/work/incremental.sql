@@ -1,8 +1,9 @@
+--depends_on: {{ ref('wrk_hash_pe') }}
 {{
     config(
         schema= 'raw_test',
         tags= ["tag_name"],
-        materialized='incremental',
+        materialized='incremental'
     )
 }}
 
