@@ -35,7 +35,7 @@ models:
   FINFO_dbt:
     # Applies to all files under models/example/
     +materialized: table
-   ## +on_schema_change: "sync_all_columns"
+    +on_schema_change: "sync_all_columns"
 
 # Installing packages
 #repositories:
