@@ -21,7 +21,7 @@ with pe_hash_dataset as (
     ,company_valuation_usd as company_valuation
     ,valuation_date
     ,SHA1(investor_name||'|'||investor_types) AS investor_id
-    ,SHA1(country||'|'||state_col) AS country_id
+    ,SHA1(country||'|'||state) AS country_id
     ,SHA1(company_name||'|'||industry) AS company_id
     ,dt.date_id
     ,current_timestamp() as rec_crt_ts

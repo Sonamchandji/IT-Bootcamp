@@ -4,7 +4,7 @@ with fact as (
         ,company_id
         ,investor_id
         ,date_id
-        ,table_rnd
+        ,round
         ,cast(amount_raised as integer) as amount_raised
         ,currency
         ,current_timestamp() as rec_crt_ts
