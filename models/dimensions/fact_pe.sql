@@ -7,6 +7,7 @@ with fact as (
         ,table_rnd
         ,cast(amount_raised as integer) as amount_raised
         ,currency
+        ,current_timestamp() as rec_crt_ts
     from {{ref('wrk_hash_pe')}}
 )
 

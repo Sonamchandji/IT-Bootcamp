@@ -15,6 +15,9 @@ models:
       - name: investor_name
         tests:
           - not_null
+      - name: rec_crt_ts
+        tests:
+          - not_null
 
   - name: country_dim
     description: Country Dimension of FINFO star schema
@@ -36,7 +39,10 @@ models:
       - name: continent
         tests:
           - not_null
-  
+      - name: rec_crt_ts
+        tests:
+          - not_null
+
   - name: company_dim
     description: Company Dimension of FINFO star schema
     columns:
@@ -66,6 +72,9 @@ models:
         tests:
           - not_null
       - name: valuation_date
+        tests:
+          - not_null
+      - name: rec_crt_ts
         tests:
           - not_null
 
@@ -144,6 +153,9 @@ models:
         tests:
           - not_null
       - name: currency
+        tests:
+          - not_null
+      - name: rec_crt_ts
         tests:
           - not_null
  

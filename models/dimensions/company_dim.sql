@@ -10,7 +10,7 @@ with company as (
         ,company_valuation
         ,valuation_date
         ,company_id
-        ,current_timestamp() as insert_update_ts
+        ,current_timestamp() as rec_crt_ts
     from {{ref('wrk_hash_pe')}})
 
 select * from company
